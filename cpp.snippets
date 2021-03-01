@@ -71,6 +71,9 @@ snippet codility
 #include <thread>
 #include <mutex>
 #include <iomanip>
+#if __has_include("local-header.h")
+  #define THIS_IS_MY_LOCAL_PC 1
+#endif
 using namespace std;
 typedef long long ll;
 
@@ -81,4 +84,12 @@ typedef long long ll;
 int solution(int N){
   
 }
+
+#ifdef THIS_IS_MY_LOCAL_PC
+int main(void) {
+  int n = 255;
+  cout << solution(n) << endl;
+  return 0;
+}
+#endif
 endsnippet
